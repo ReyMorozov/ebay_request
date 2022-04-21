@@ -18,13 +18,13 @@ describe EbayRequest::Finding do
 
   let(:failing_request) do
     "<?xml version=\"1.0\" encoding=\"utf-8\"?><findItemsByKeywordsRequest\
- xmlns=\"http://www.ebay.com/marketplace/search/v1/services\">\
+ xmlns=\"https://www.ebay.com/marketplace/search/v1/services\">\
 </findItemsByKeywordsRequest>"
   end
 
   let(:failing_response) do
     %(<?xml version='1.0' encoding='UTF-8'?><findItemsByKeywordsResponse \
-xmlns="http://www.ebay.com/marketplace/search/v1/services">\
+xmlns="https://www.ebay.com/marketplace/search/v1/services">\
 <ack>Failure</ack><errorMessage><error><errorId>2</errorId>
 <domain>Marketplace</domain><severity>Error</severity>
 <category>Request</category><message>Keywords value required.</message>
@@ -34,7 +34,7 @@ xmlns="http://www.ebay.com/marketplace/search/v1/services">\
 
   it "#response" do
     stub_request(
-      :post, "http://svcs.sandbox.ebay.com/services/search/FindingService/v1"
+      :post, "https://svcs.sandbox.ebay.com/services/search/FindingService/v1"
     ).with(
       body: failing_request,
       headers: {

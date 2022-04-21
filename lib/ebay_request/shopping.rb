@@ -12,7 +12,7 @@ class EbayRequest::Shopping < EbayRequest::Base
   end
 
   def endpoint
-    "http://open.api%{sandbox}.ebay.com/shopping"
+    "https://open.api%{sandbox}.ebay.com/shopping"
   end
 
   def headers(callname)

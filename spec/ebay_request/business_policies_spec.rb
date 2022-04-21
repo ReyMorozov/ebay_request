@@ -36,25 +36,25 @@ describe EbayRequest::BusinessPolicies do
   let(:request) do
     %(<?xml version="1.0" encoding="utf-8"?>\
 <getSellerProfilesRequest \
-xmlns="http://www.ebay.com/marketplace/selling/v1/services">\
+xmlns="https://www.ebay.com/marketplace/selling/v1/services">\
 </getSellerProfilesRequest>)
   end
 
   let(:failing_request) do
     %(<?xml version="1.0" encoding="utf-8"?><getSellerProfilesRequest \
-xmlns="http://www.ebay.com/marketplace/selling/v1/services">\
+xmlns="https://www.ebay.com/marketplace/selling/v1/services">\
 <item><title>i</title></item></getSellerProfilesRequest>)
   end
 
   let(:successful_response) do
     %(<?xml version='1.0' encoding='UTF-8'?><getSellerProfilesResponse \
-xmlns="http://www.ebay.com/marketplace/selling/v1/services">\
+xmlns="https://www.ebay.com/marketplace/selling/v1/services">\
 <ack>Success</ack></getSellerProfilesResponse>)
   end
 
   let(:response_with_errors) do
     %(<?xml version='1.0' encoding='UTF-8'?><getSellerProfilesResponse \
-xmlns="http://www.ebay.com/marketplace/selling/v1/services">\
+xmlns="https://www.ebay.com/marketplace/selling/v1/services">\
 <ack>Failure</ack><errorMessage><error><severity>Error</severity>\
 <message>Some error</message><errorId>123</errorId></error>\
 <error><severity>Warning</severity>\
@@ -64,7 +64,7 @@ xmlns="http://www.ebay.com/marketplace/selling/v1/services">\
 
   let(:response_with_expired_iaf_token_error) do
     %(<?xml version='1.0' encoding='UTF-8'?><getSellerProfilesResponse \
-xmlns="http://www.ebay.com/marketplace/selling/v1/services">\
+xmlns="https://www.ebay.com/marketplace/selling/v1/services">\
 <ack>Failure</ack><errorMessage><error><category>Request</category>\
 <domain>EBAY-US</domain><errorId>21917053</errorId><exceptionId>1</exceptionId>\
 <message>Error</message><severity>Error</severity>\
